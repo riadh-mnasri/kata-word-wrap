@@ -1,18 +1,23 @@
 package codingdojo
 
-case class WordWrapper() {
-    def wrap(input: String, columnIndex: Int): String = {
-        /* if(input.contains(" ")){
-            return "Hello\nWorld"
-        }
-        return input*/
+object wordWrapper {
 
+    implicit class StringCustomImprovements(val input: String) {
+        def wrap(columnIndex: Int): String = {
+            return input.split(" ").foldLeft(Array("")) {
 
-        if (!input.contains(" "))
-            return input
-        if(columnIndex > input.indexOf(" ")){
-            return input
+                (acc, element) => {
+                    val newSentence = (acc.last + " " + element).trim
+                    if (acc.last.length > 0 && newSentence.length > columnIndex) {
+                        acc :+ element
+                    }
+                    else {
+                        acc.update(0, newSentence)
+                        acc
+                    }
+                }
+            }.mkString("\n")
         }
-        return "Hello\nWorld"
     }
+
 }

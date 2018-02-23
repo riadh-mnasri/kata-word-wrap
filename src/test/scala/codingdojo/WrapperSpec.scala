@@ -1,32 +1,20 @@
 package codingdojo
 
 import org.scalatest.{FlatSpec, Matchers}
+import codingdojo.wordWrapper._
 
 class WrapperSpec extends FlatSpec with Matchers {
 
-   "word wrap" should "return input string when it does not contain space" in {
-        val inputString: String = "anyStringWithoutSpace"
-        val wrapper = new WordWrapper()
-        assert(wrapper.wrap(inputString, 1) == inputString)
+    it should "return the string when it does not contain space" in {
+        assert("anyStringWithoutSpace".wrap(1) == "anyStringWithoutSpace")
     }
 
-    "word wrap" should "return input string when it has just one space" in {
-        val wrapper = new WordWrapper()
-        assert(wrapper.wrap("Hello World", 10) == "Hello\nWorld")
+    it should "return all words splitted on different lines" in {
+        assert("hello world".wrap(7) == "hello\nworld")
     }
 
-    "word wrap" should "return input string when it has just one space " +
-        "and columnSize is greater than the index of the first space" in {
-        val wrapper = new WordWrapper()
-        assert(wrapper.wrap("Hello World", 30) == "Hello World")
+    it should "return two worls on the first line" in {
+        assert("hello world".wrap(20) == "hello world")
     }
-
-    "word wrap" should "return input string when it has two spaces" in {
-        val wrapper = new WordWrapper()
-        assert(wrapper.wrap("Hello World all !", 12) == "Hello World\nall !")
-    }
-
-
-
 
 }
