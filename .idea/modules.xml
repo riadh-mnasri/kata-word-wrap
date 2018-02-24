@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/kata-word-wrap.iml" filepath="$PROJECT_DIR$/.idea/modules/kata-word-wrap.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/kata-word-wrap-build.iml" filepath="$PROJECT_DIR$/.idea/modules/kata-word-wrap-build.iml" />
     </modules>
   </component>
 </project>
